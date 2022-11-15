@@ -1,4 +1,5 @@
-name: Github Actions Schedule
+#Workflow Name
+name: Github Actions Manual Workflow
 
 #Trigger on which should workflow run
 on:
@@ -16,6 +17,11 @@ jobs:
        #Steps involved in job
        steps:
             #Name of the step
+          - name: Client Payload
+            #Commands to run in step
+            run: |
+                 echo ${{ github.event.client_payload.env }}
+                 echo ${{ github.event.client_payload.app_type }}            
           - name: Linux File Commands
             #Commands to run in step
             run: |
