@@ -1,4 +1,3 @@
-#Workflow Name
 name: Github Actions Schedule
 
 #Trigger on which should workflow run
