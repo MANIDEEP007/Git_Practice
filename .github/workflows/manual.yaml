@@ -3,7 +3,7 @@ name: Github Actions Schedule
 #Trigger on which should workflow run
 on:
    #Manually trigger Workflow via POST request
-   repository_dispatch
+   repository_dispatch:
      #On which type of manual request, workflow will trigger
      types: [ build ]
 
