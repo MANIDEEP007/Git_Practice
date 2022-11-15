@@ -1,0 +1,24 @@
+#Workflow Name
+name: Github Actions Schedule
+
+#Trigger on which should workflow run
+on:
+   #Manually trigger Workflow via POST request
+   repository_dispatch
+     #On which type of manual request, workflow will trigger
+     types: [ build ]
+
+#Jobs to run when workflow is triggered
+jobs:
+    #Name of the job
+    run-linux-commands:
+       #Runs on runner provided by Github
+       runs-on: ubuntu-latest
+       #Steps involved in job
+       steps:
+            #Name of the step
+          - name: Linux File Commands
+            #Commands to run in step
+            run: |
+                 pwd
+                 ls
