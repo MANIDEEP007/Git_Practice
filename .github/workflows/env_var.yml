@@ -1,0 +1,55 @@
+#Workflow Name
+name: Environment Variables Demo
+
+#On Push Event, Trigger Workflow
+on: [push]
+
+#Workflow Environment Variables
+env:
+    WF_VAR: Variable available to all jobs
+
+#List of jobs to run when workflow triggered
+jobs:
+     #Name of the job
+     environment-variables:
+         #Job runs on Latest Ubuntu Runner
+         runs-on: ubuntu-lates
+         #Job Level Environment Variables
+         env:
+             JOB_VAR: Variables available to all steps in job
+         #Steps in the job
+         steps:
+             - name: Print Environment Variables
+               #Step Level Environment Variables
+               env:
+                   STEP_VAR: Variable available to single step
+               run: |
+                    echo "WF_VAR: ${WF_VAR}"
+                    echo "JOB_VAR: ${JOB_VAR}"
+                    echo "STEP_VAR: ${STEP_VAR}"
+             - name: Print Environment Variables in another step
+               #Step Level Environment Variables
+               run: |
+                    echo "WF_VAR: ${WF_VAR}"
+                    echo "JOB_VAR: ${JOB_VAR}"
+                    echo "STEP_VAR: ${STEP_VAR}"                    
+     default-environment-variables:
+         #Job runs on Latest Ubuntu Runner
+         runs-on: ubuntu-lates
+         #Steps in the job
+         steps:
+             - name: Print all Environment Variables
+               run: |
+                     echo "HOME: ${HOME}"
+                     echo "GITHUB_WORKFLOW: ${GITHUB_WORKFLOW}"
+                     echo "GITHUB_ACTION: ${GITHUB_ACTION}"
+                     echo "GITHUB_ACTIONS: ${GITHUB_ACTIONS}"
+                     echo "GITHUB_ACTOR: ${GITHUB_ACTOR}"
+                     echo "GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}"
+                     echo "GITHUB_EVENT_NAME: ${GITHUB_EVENT_NAME}"
+                     echo "GITHUB_WORKSPACE :${GITHUB_WORKSPACE}"
+                     echo "GITHUB_SHA: ${GITHUB_SHA}"
+                     echo "GITHUB_REF: ${GITHUB_REF}"
+                     echo "WF_VAR: ${WF_VAR}"
+                     echo "JOB_VAR: ${JOB_VAR}"
+                     echo "STEP_VAR: ${STEP_VAR}"
