@@ -13,7 +13,7 @@ jobs:
      #Name of the job
      environment-variables:
          #Job runs on Latest Ubuntu Runner
-         runs-on: ubuntu-lates
+         runs-on: ubuntu-latest
          #Job Level Environment Variables
          env:
              JOB_VAR: Variables available to all steps in job
@@ -35,7 +35,7 @@ jobs:
                     echo "STEP_VAR: ${STEP_VAR}"                    
      default-environment-variables:
          #Job runs on Latest Ubuntu Runner
-         runs-on: ubuntu-lates
+         runs-on: ubuntu-latest
          #Steps in the job
          steps:
              - name: Print all Environment Variables
